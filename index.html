@@ -7,41 +7,58 @@
 </head>
 <body>
     <div id="app">
-        <input type="checkbox" v-model="checked">
-        <p>{{ message }}</p>
+        {{message}}
     </div>
+    <p>===============================================================</p>
+    <div id="app01">
+        <input type="text" v-model="message">
+        <p>{{message}}</p>
+    </div>
+    <p>===============================================================</p>
     <div id="app1">
+        <input type="checkbox" v-model="checked">
+        <p>{{ checked }}</p>
+    </div>
+    <p>===============================================================</p>
+    <div id="app2">
         <label><input type="radio" value="First" v-model='picked'>Первый</label>
         <label><input type="radio" value="Second" v-model='picked'>Второй</label>
         <p>{{ picked }}</p>
     </div>
-    <div id="app2">
+    <p>===============================================================</p>
+    <div id="app3">
         <select v-model="language">
             <option>Java-Script</option>
             <option>Python</option>
             <option>C++</option>
         </select>
-
     </div>
-    
-
-
+     <p>===============================================================</p>
 
     <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
     <script>
-        let vm = new Vue({          
-            el: '#app1',
-            data: {
-                picked: 'Second'
-            }
-
-
+        let vm = new Vue({
+            el: "#app",
+            data: { message: "Hello, Vue.js" }
+        })
+        let vm01 = new Vue({
+            el: "#app01",
+            data: {message: "Текст"}     
+            
         })
         let vm1 = new Vue({
+            el:"#app1",
+            data: {checked: false}
+        })
+
+        let vm2 = new Vue({          
             el: '#app2',
-            data: {
-                language: 'Python'
-            }
+            data: { picked: 'Second'}
+
+        })
+        let vm3 = new Vue({
+            el: '#app3',
+            data: { language: 'Python' }
         })
         
 
