@@ -6,62 +6,57 @@
     <title>VueJS</title>
 </head>
 <body>
-    <div id="app">
+    <div id="app"><!--Шаблон для Vue-->
         {{message}}
     </div>
     <p>===============================================================</p>
-    <div id="app01">
+    <div id="app01"><!--Текстовые поля-->
         <input type="text" v-model="message">
         <p>{{message}}</p>
     </div>
     <p>===============================================================</p>
-    <div id="app1">
+    <div id="app1"><!--Флажки-->
         <input type="checkbox" v-model="checked">
         <p>{{ checked }}</p>
     </div>
     <p>===============================================================</p>
-    <div id="app2">
+    <div id="app2"><!--Переключатели-->
         <label><input type="radio" value="First" v-model='picked'>Первый</label>
         <label><input type="radio" value="Second" v-model='picked'>Второй</label>
         <p>{{ picked }}</p>
     </div>
-    <p>===============================================================</p>
-    <div id="app3">
+    
+    <div id="app3"><!--Выпадающие списки-->
         <select v-model="language">
             <option>Java-Script</option>
             <option>Python</option>
             <option>C++</option>
         </select>
     </div>
-    
+    <p>===============================================================</p>
+    <div id="app4"><!--Выражения-->
+        <div>
+            <input type="number" v-model="n">
+            <p>Удвоенное число: {{ n*2 }}</p>
+        </div>
+        <div>
+            <input type="checkbox" v-model="checked">
+            <p>{{ checked ? "YES" : "NO" }}</p>
+        </div>
+        <div>
+            <input type="text" v-model="message">
+            <p>{{ message.split('').reverse().join('') }}</p>
+        </div>        
+    </div>
+    <p>===============================================================</p>
+    <div id="app5">
+        <input type="text" v-model="query">
+        <a v-bind:href="'https://google.com/search?q=' + query">Искать!</a>
+    </div>
+
 
     <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
-    <script>
-        let vm = new Vue({
-            el: "#app",
-            data: { message: "Hello, Vue.js" }
-        })
-        let vm01 = new Vue({
-            el: "#app01",
-            data: {message: "Текст"}     
-            
-        })
-        let vm1 = new Vue({
-            el:"#app1",
-            data: {checked: false}
-        })
-
-        let vm2 = new Vue({          
-            el: '#app2',
-            data: { picked: 'Second'}
-
-        })
-        let vm3 = new Vue({
-            el: '#app3',
-            data: { language: 'Python' }
-        })
-        
-
-    </script>
+    <script src="script.js"></script>
+    
 </body>
 </html>
