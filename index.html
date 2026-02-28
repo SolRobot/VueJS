@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VueJS</title>
+    <style>
+        .header--blue{
+            color: blue;
+        }
+        .header--underline{
+            text-decoration: underline;
+        }
+    </style>
+
 </head>
 <body>
     <div id="app"><!--Шаблон для Vue-->
@@ -17,7 +26,7 @@
     <p>===============================================================</p>
     <div id="app1"><!--Флажки-->
         <input type="checkbox" v-model="checked">
-        <p>{{ checked }}</p>
+        <p>{{ checked? 'Витя':'Даня' }}</p>
     </div>
     <p>===============================================================</p>
     <div id="app2"><!--Переключатели-->
@@ -49,9 +58,38 @@
         </div>        
     </div>
     <p>===============================================================</p>
-    <div id="app5">
+    <div id="app5"><!--Связывание двух значений-->
         <input type="text" v-model="query">
         <a v-bind:href="'https://google.com/search?q=' + query">Искать!</a>
+    </div>
+    <p>===============================================================</p>
+    <div id="app6"><!--Изменение класса-->
+        <label>
+            <input type="checkbox" v-model="headerStyle.blue">Синий
+        </label>
+        <label>
+            <input type="checkbox" v-model="headerStyle.underline">Подчеркнутый
+        </label>
+        <h1 v-bind:class="{ 'header--blue': headerStyle.blue, 
+                'header--underline': headerStyle.underline}">Заголовок</h1>
+    </div>
+    <p>===============================================================</p>
+    <div id="app7"><!--Изменение стиля-->
+        <input type="range" v-model="sizeFactor" min="1" max="5" step="0.1">
+        <p v-bind:style="{ 'font-size': sizeFactor + 'em'}">Текст</p>
+    </div>
+    <p>===============================================================</p>
+    <div id="app8"><!--Генерация списка-->
+        <ul>
+            <li v-for="item in items">
+                {{ item.text }} &mdash; {{ index }}
+            </li>
+        </ul>
+        <ul>
+            <li v-for="i in n">
+                {{ i * 2 }}
+            </li>
+        </ul>
     </div>
 
 
